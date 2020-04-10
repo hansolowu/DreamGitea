@@ -23,11 +23,6 @@
 				</div>
 			{{end}}
 		</div>
-
-		<!-- workflow view insert -->
-
-		{{template "repo/home_workflow" .}}
-
 		<div class="ui" id="repo-topics">
 		{{range .Topics}}<a class="ui repo-topic small label topic" href="{{AppSubUrl}}/explore/repos?q={{.Name}}&topic=1">{{.Name}}</a>{{end}}
 		{{if and .Permission.IsAdmin (not .Repository.IsArchived)}}<a id="manage_topic">{{.i18n.Tr "repo.topic.manage_topics"}}</a>{{end}}
@@ -146,6 +141,12 @@
 				{{end}}
 			</div>
 		</div>
+
+
+		<!-- DreamTea workflow view insert -->
+		{{template "repo/home_workflow" .}}
+
+
 		{{if .IsViewFile}}
 			{{template "repo/view_file" .}}
 		{{else if .IsBlame}}
