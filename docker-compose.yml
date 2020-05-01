@@ -14,9 +14,11 @@ services:
     networks:
       - gitea
     volumes:
-      - /home/$USER/gitea_dev:/data
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
+      # for macos
+      - /Users/$USER/gitea_dev:/data
+
+      #for linux use
+      #- /home/$USER/gitea_dev:/data
     ports:
       - "3000:3000"
       - "222:22"
